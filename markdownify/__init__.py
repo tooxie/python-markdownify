@@ -184,6 +184,12 @@ class MarkdownConverter(object):
         title_part = ' "%s"' % title.replace('"', r'\"') if title else ''
         return '![%s](%s%s)' % (alt, src, title_part)
 
+    def convert_iframe(self, el, text):
+        return str(el)
+
+    def convert_object(self, el, text):
+        return str(el)
+
 
 def markdownify(html, **options):
     return MarkdownConverter(**options).convert(html)
